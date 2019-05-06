@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <title> ToDo App </title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+
+    <link rel="stylesheet" href="/app.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+
+
+
+
+
+    <!--    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>-->
+
+
+
+    <!-- Latest Sortable -->
+
+</head>
+
+
+
+
+<body>
+    <div class="container">
+        <Center>
+            <h1> Checked  ✓ </h1>
+        </Center>
+
+        <div class="row justify-content-md-center">
+            <form action="/addtask" method="POST" class="row">
+                Task:
+                <input class="col-sm" type="text" id = "first" name="newtask" placeholder="Task Name">
+                Due Date:
+                <input class="col-sm" id="date" type="date" name="newdate" placeholder="Due Date">
+                <select name = "category" class="custom-select col-sm"id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">Adol Paradox</option>
+                    <option value="2">Dynamic Web</option>
+                    <option value="3">Motion Graphics</option>
+                    <option value="4">Movie Marketing</option>
+                </select>
+                
+                <button id = "only" class="col-sm"> Add Task </button>
+
+            </form>
+        </div> 
+
+
+        <div class="container">
+            <div class="row">
+                <h3 class="col-sm">Adol. Paradox</h3>
+                <h3 class="col-sm">Dynamic Web</h3>
+                <h3 class="col-sm">Motion Graphics</h3>
+                <h3 class="col-sm">Movie Marketing</h3>
+            </div>
+        </div>
+
+        <form action="/movetask" method="post">
+
+            <div class="container">
+                <div class="row">
+
+                    <div id="newtask" class="list-group col-sm">
+                       
+                        <% for( var i = 0; i < task.length; i++){ %>
+                        <button data-id='<%= i %>' name="item" class="list-group-item col-sm" value="<%= task[i] %>" formaction="/removetask" type="submit"><%= task[i] %>
+                            <div class="badge badge-primary badge-pill" name="check2" value="<%= date[i] %>"><%= date[i] %></div>
+                        </button>
+                        <% } %>
+                    </div>
+
+                    <div id="class1" class="list-group col-sm" value=class1>
+
+                        
+                        <% for( var i = 0; i < class1.length; i++){ %>
+                        <button data-id='<%= i %>' name="item" class="list-group-item col-sm" value="<%= class1[i] %>" formaction="/removetask1" type="submit"><%= class1[i] %>
+                            <div class="badge badge-primary badge-pill" name="check2" value="<%= date[i] %>"><%= date[i] %></div>
+                        </button>
+                        <% } %>
+                    </div>
+
+                    <div id="class2" class="list-group col-sm" value="class2">
+                        <% var added = "class2"%>
+                        <% for( var i = 0; i < class2.length; i++){ %>
+                        <button data-id='<%= i %>' name="item" class="list-group-item col-sm" value="<%= class2[i] %>" formaction="/removetask2" type="submit">  <%= class2[i] %>
+                            <div class="badge badge-primary badge-pill" name="check2" value="<%= date[i] %>"><%= date[i] %></div>
+                        </button>
+                        <% } %>
+
+                    </div>
+
+                    <div id="class3" class="list-group col-sm">
+                        <% var added = "class3"%>
+                        <% for( var i = 0; i < class3.length; i++){ %>
+                        <button data-id='<%= i %>' name="item" class="list-group-item col-sm" value="<%= class3[i] %>" formaction="/removetask3" type="submit">  <%= class3[i] %>
+                            <div class="badge badge-primary badge-pill" name="check2" value="<%= date[i] %>"><%= date[i] %></div>
+                        </button>
+                        <% } %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            
+
+        </form>
+
+
+
+
+
+
+    </div>
+    <script src="/sort.js"></script>
+</body>
+
+</html>
